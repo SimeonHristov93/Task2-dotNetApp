@@ -6,19 +6,19 @@ pipeline {
 
         stage('Restore Dependencies') {
             steps {
-                sh 'dotnet restore'
+                sh '/usr/local/share/dotnet/dotnet restore'
             }
         }
 
         stage('Build Application') {
             steps {
-                sh 'dotnet build --configuration Release --no-restore'
+                sh '/usr/local/share/dotnet/dotnet build --configuration Release --no-restore'
             }
         }
 
         stage('Run All Tests') {
             steps {
-                sh 'dotnet test --configuration Release --no-build --verbosity normal'
+                sh '/usr/local/share/dotnet/dotnet test --configuration Release --no-build --verbosity normal'
             }
         }
     }
